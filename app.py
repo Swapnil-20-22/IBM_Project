@@ -97,8 +97,10 @@ def generate_sample_data(n_records=15000):
         profit = revenue - cost_revenue
         profit_margin = (profit / revenue) * 100 if revenue > 0 else 0
 
-        # Seasonal distribution
-        month_idx = np.random.choice(12, p=[0.07,0.06,0.08,0.07,0.08,0.10,0.12,0.11,0.08,0.07,0.10,0.14])  # 0-11
+        # Seasonal distribution (probabilities normalized to sum=1)
+        month_probs = np.array([0.07,0.06,0.08,0.07,0.08,0.10,0.12,0.11,0.08,0.07,0.10,0.14])
+        month_probs = month_probs / month_probs.sum()
+        month_idx = np.random.choice(12, p=month_probs)  # 0-11
         month = month_idx + 1  # 1-12
         # Days in month
         if month in [1,3,5,7,8,10,12]:
@@ -108,7 +110,10 @@ def generate_sample_data(n_records=15000):
         else:  # February 2023 (not leap year)
             max_day = 28
         day = np.random.randint(1, max_day + 1)
-        hour = np.random.choice(24, p=[0.05,0.03,0.02,0.02,0.02,0.04,0.06,0.08,0.09,0.10,0.11,0.12,0.13,0.14,0.15,0.14,0.13,0.12,0.11,0.10,0.09,0.08,0.07,0.06])
+        # Hour distribution (probabilities normalized to sum=1)
+        hour_probs = np.array([0.05,0.03,0.02,0.02,0.02,0.04,0.06,0.08,0.09,0.10,0.11,0.12,0.13,0.14,0.15,0.14,0.13,0.12,0.11,0.10,0.09,0.08,0.07,0.06])
+        hour_probs = hour_probs / hour_probs.sum()
+        hour = np.random.choice(24, p=hour_probs)
         invoice_date = datetime(2023, month, day, hour, random.randint(0, 59))
 
         data.append({
