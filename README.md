@@ -183,7 +183,3 @@ This project is part of the IBM SkillsBuild Academic Internship Capstone Project
 - Streamlit Documentation: https://docs.streamlit.io
 - Plotly Documentation: https://plotly.com/python/
 - Pandas Documentation: https://pandas.pydata.org/docs/
-
----
-
-**Generated with [Claude Code](https://claude.com)**

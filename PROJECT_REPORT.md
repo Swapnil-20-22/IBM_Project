@@ -272,7 +272,6 @@ Key tables include:
 ---
 
 *Report Generated: September 2026*
-*Generated with [Claude Code](https://claude.com)*
 
 ---
 

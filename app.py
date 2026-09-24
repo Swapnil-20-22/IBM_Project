@@ -6,7 +6,7 @@ AI-powered business intelligence application for capstone project.
 Single-file Streamlit app with integrated data processing and visualization.
 
 Author: IBM SkillsBuild Capstone Project
-Generated with Claude Code
+Developed by IBM SkillsBuild Capstone Team
 """
 
 import streamlit as st
@@ -731,7 +731,6 @@ def main():
 
     # Footer
     st.sidebar.markdown("---")
-    st.sidebar.markdown("🤖 Generated with [Claude Code](https://claude.com)")
 
 if __name__ == '__main__':
     main()
